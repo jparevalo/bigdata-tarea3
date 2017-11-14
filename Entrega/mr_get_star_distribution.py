@@ -20,7 +20,7 @@ def get_json_element(line):
         yield line
 
 BUSINESS_CATEGORIES = {}
-class TopReviewerByCategory(MRJob):
+class StarsByCategory(MRJob):
     OUTPUT_PROTOCOL = CsvProtocol  # write output as CSV
 
     def mapper_user_reviews_by_cat(self, _, line):
@@ -45,4 +45,4 @@ class TopReviewerByCategory(MRJob):
                 MRStep(reducer=self.total_ratings_per_category_reducer)]
 
 if __name__ == '__main__':
-    TopReviewerByCategory.run()
+    StarsByCategory.run()
